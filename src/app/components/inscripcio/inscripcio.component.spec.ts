@@ -23,7 +23,7 @@ describe('InscripcioComponent', () => {
 
   it('should calculate DNI letter correctly', () => {
     const component = new InscripcioComponent();
-    component.inscripcioForm.controls['dni'].setValue('12345678');
+    component.dni = '12345678';
     component.calculateDNILetter();
     expect(component.dniLetter).toBe('Z');
   });

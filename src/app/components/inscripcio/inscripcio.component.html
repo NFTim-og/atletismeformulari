@@ -1,1 +1,9 @@
-<p>inscripcio works!</p>
+<form>
+    <label for="dni">DNI:</label>
+    <input id="dni" [value]="dni" (input)="onDniChange($event)" type="text" name="dni" maxlength="8" />
+  
+    <span>DNI Letter: {{ dniLetter ? dniLetter : '' }}</span>
+  
+    <!-- Add other form fields for races -->
+    <button type="submit">Submit</button>
+</form>
