@@ -1,9 +1,37 @@
 <form>
-    <label for="dni">DNI:</label>
-    <input id="dni" [value]="dni" (input)="onDniChange($event)" type="text" name="dni" maxlength="8" />
+    <h1>Inscripció proves atletisme</h1>
+    <div>
+        <h2>Dades Identificatives</h2>
+        <label for="dni">DNI:</label>
+        <input id="dni" [value]="dni" (input)="onDniChange($event)" type="text" name="dni" maxlength="8" />
+        
+        <span> {{ dniLetter ? dniLetter : '' }}</span>
+    </div>
+    <div>
+      <h2>Inscripció:</h2>
+      <p>Un atleta no es pot inscriure a més de 1200 metres</p>
   
-    <span>DNI Letter: {{ dniLetter ? dniLetter : '' }}</span>
+      <label>
+        <input type="checkbox" (change)="onRaceSelection($event, 100)"> 100m llisos
+      </label>
+      <label>
+        <input type="checkbox" (change)="onRaceSelection($event, 200)"> 200m llisos
+      </label>
+      <label>
+        <input type="checkbox" (change)="onRaceSelection($event, 400)"> 400m llisos
+      </label>
+      <label>
+        <input type="checkbox" (change)="onRaceSelection($event, 800)"> 800m llisos
+      </label>
+      <label>
+        <input type="checkbox" (change)="onRaceSelection($event, 1000)"> 1000m llisos
+      </label>
+    </div>
   
-    <!-- Add other form fields for races -->
-    <button type="submit">Submit</button>
-</form>
+    <div [style.display]="selectedDistance > 1200 ? 'block' : 'none'" style="color: red;">
+        La distància total seleccionada supera els 1200 metres!
+    </div>
+  
+    <button type="submit" [disabled]="!canSubmit()">Inscripció</button>
+  </form>
+  

@@ -15,7 +15,7 @@ export class InscripcioComponent {
   dniLetters = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'];
 
   calculateDNILetter() {
-    if (this.dni && this.dni.length === 8) {
+    if (this.dni!==undefined && this.dni.length === 8) {
       const dniNumber = parseInt(this.dni, 10);
       const letterIndex = dniNumber % 23;
       this.dniLetter = this.dniLetters[letterIndex];
